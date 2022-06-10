@@ -25,11 +25,16 @@ def main():
 
     # バケット作成
     BUCKET_NAME = "my-boston-model"
-    
+
     session = boto3.Session()
     s3_client = session.client("s3")
     location={'LocationConstraint': 'ap-northeast-1'}
-    s3_client.create_bucket(Bucket=BUCKET_NAME, CreateBucketConfiguration=location)
+    # バケットがすでにあればエラーになる。
+    try:
+        s3_client.create_bucket(Bucket=BUCKET_NAME, CreateBucketConfiguration=location)
+    except:
+        pass
+
     # S3にアップロード
     s3_client.upload_file("boston.model", BUCKET_NAME, "boston.model")
 
