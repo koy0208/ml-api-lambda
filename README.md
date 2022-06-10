@@ -24,3 +24,6 @@ dkr.ecr.ap-northeast-1.amazonaws.com/api-lambda:latest
 # ecrへpush
 docker push {userid}.dkr.ecr.ap-northeast-1.amazonaws.com/api-lambda:latest
 ```
+4. 上記ECRのイメージから、lambda関数を作成する。
+
+5. APIgatewayをトリガーにして、lmbdaを起動する。

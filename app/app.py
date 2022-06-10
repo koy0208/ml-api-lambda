@@ -5,8 +5,6 @@ from pydantic import BaseModel
 from mangum import Mangum
 from boto3 import Session
 from typing import List
-import warnings
-warnings.filterwarnings("ignore")
 
 app = FastAPI()
 
@@ -42,7 +40,3 @@ async def post_predict(features:List[Features]):
     return responce
 
 handler = Mangum(app)
-
-#aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin 868366341526.dkr.ecr.ap-northeast-1.amazonaws.com
-#docker tag fastapi-lambbda:latest  868366341526.dkr.ecr.ap-northeast-1.amazonaws.com/fastapi-lambbda:latest
-#docker push  868366341526.dkr.ecr.ap-northeast-1.amazonaws.com/fastapi-lambbda:latest
