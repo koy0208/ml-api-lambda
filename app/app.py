@@ -12,10 +12,6 @@ class Features(BaseModel):
     RM:float
     AGE:float
 
-@app.get("/")
-async def root():
-    return {"message": "Hello World"}
-
 @app.get("/health")
 async def get_health():
     return {"message": "OK"}
